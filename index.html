@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>旅行計画レポート</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #24313f;
+        --muted: #5d6875;
+        --line: #d8dee6;
+        --paper: #f7f9fb;
+        --accent: #087d8f;
+        --accent-soft: #e2f3f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.7;
+      }
+
+      main {
+        width: min(920px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      header {
+        padding: 32px 0 24px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 7vw, 4rem);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 0 0 16px;
+        font-size: 1.35rem;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .lead {
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        padding: 6px 10px;
+        border: 1px solid #9fd0d8;
+        border-radius: 6px;
+        background: var(--accent-soft);
+        color: #075e6a;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .item {
+        min-height: 132px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .item strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent);
+      }
+
+      .item span {
+        color: var(--muted);
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 720px) {
+        main {
+          width: min(100% - 24px, 920px);
+          padding: 28px 0;
+        }
+
+        header {
+          padding-top: 20px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="status">GitHub Pages テスト公開</div>
+        <h1>旅行計画レポート</h1>
+        <p class="lead">
+          このページは、旅行計画を静的HTMLレポートとしてGitHub Pagesで公開するためのテストページです。
+        </p>
+      </header>
+
+      <section aria-labelledby="overview-title">
+        <h2 id="overview-title">公開テスト</h2>
+        <div class="grid">
+          <div class="item">
+            <strong>目的</strong>
+            <span>旅行の候補、日程、交通、宿泊、予算をまとめる入口にします。</span>
+          </div>
+          <div class="item">
+            <strong>形式</strong>
+            <span>GitHub Pagesでそのまま配信できる静的HTMLです。</span>
+          </div>
+          <div class="item">
+            <strong>次の作業</strong>
+            <span>行き先や日程が決まったら、旅程表と参考リンクを追加します。</span>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="note-title">
+        <h2 id="note-title">メモ</h2>
+        <p>
+          ここから旅行ごとの詳細ページや、予算表、予約メモ、地図リンクを増やしていきます。
+        </p>
+      </section>
+
+      <footer class="meta">
+        最終更新: 2026-05-16
+      </footer>
+    </main>
+  </body>
+</html>
