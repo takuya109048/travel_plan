@@ -3,51 +3,84 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>旅行計画レポート</title>
+    <title>高知日帰り旅行計画レポート</title>
     <style>
       :root {
         color-scheme: light;
-        --ink: #24313f;
-        --muted: #5d6875;
-        --line: #d8dee6;
-        --paper: #f7f9fb;
-        --accent: #087d8f;
-        --accent-soft: #e2f3f5;
+        --bg: #f6f8f7;
+        --surface: #ffffff;
+        --ink: #202a33;
+        --muted: #5d6873;
+        --line: #d9e0e6;
+        --accent: #087b83;
+        --accent-dark: #07545c;
+        --accent-soft: #e5f4f3;
+        --warm: #fff5df;
+        --warm-line: #efd28f;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
         color: var(--ink);
-        background: var(--paper);
-        line-height: 1.7;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--accent-dark);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
       }
 
       main {
-        width: min(920px, calc(100% - 32px));
+        width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 48px 0;
+        padding: 32px 0 56px;
       }
 
       header {
-        padding: 32px 0 24px;
+        padding: 28px 0 22px;
         border-bottom: 1px solid var(--line);
       }
 
+      .eyebrow {
+        display: inline-flex;
+        margin-bottom: 14px;
+        padding: 5px 9px;
+        border: 1px solid #9dccce;
+        border-radius: 6px;
+        background: var(--accent-soft);
+        color: var(--accent-dark);
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
       h1 {
-        margin: 0 0 12px;
-        font-size: clamp(2rem, 7vw, 4rem);
+        max-width: 820px;
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 6vw, 4.6rem);
         line-height: 1.08;
         letter-spacing: 0;
       }
 
       h2 {
         margin: 0 0 16px;
-        font-size: 1.35rem;
+        font-size: 1.45rem;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 0 0 10px;
+        font-size: 1.05rem;
         letter-spacing: 0;
       }
 
@@ -55,72 +88,143 @@
         margin: 0;
       }
 
-      .lead {
-        max-width: 680px;
-        color: var(--muted);
-        font-size: 1.05rem;
-      }
-
-      .status {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 18px;
-        padding: 6px 10px;
-        border: 1px solid #9fd0d8;
-        border-radius: 6px;
-        background: var(--accent-soft);
-        color: #075e6a;
-        font-weight: 700;
-        font-size: 0.9rem;
-      }
-
       section {
-        padding: 28px 0;
+        padding: 30px 0;
         border-bottom: 1px solid var(--line);
       }
 
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
+      .lead {
+        max-width: 780px;
+        color: var(--muted);
+        font-size: 1.04rem;
       }
 
-      .item {
-        min-height: 132px;
-        padding: 18px;
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .summary-card,
+      .note-card {
+        min-height: 118px;
+        padding: 16px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: #ffffff;
+        background: var(--surface);
       }
 
-      .item strong {
+      .summary-card span,
+      .note-card span {
         display: block;
-        margin-bottom: 8px;
-        color: var(--accent);
+        color: var(--muted);
+        font-size: 0.9rem;
       }
 
-      .item span {
-        color: var(--muted);
+      .summary-card strong,
+      .note-card strong {
+        display: block;
+        margin-top: 7px;
+        color: var(--accent-dark);
+        font-size: 1.25rem;
+      }
+
+      .notice {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border: 1px solid var(--warm-line);
+        border-radius: 8px;
+        background: var(--warm);
+        color: #594620;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      table {
+        width: 100%;
+        min-width: 780px;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+
+      th,
+      td {
+        padding: 12px 13px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        white-space: nowrap;
+      }
+
+      th {
+        background: #edf4f3;
+        color: var(--accent-dark);
+        font-weight: 700;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .number {
+        text-align: right;
+      }
+
+      .wide {
+        white-space: normal;
+        min-width: 220px;
+      }
+
+      .route-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .route-list li {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .route-list strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--accent-dark);
       }
 
       .meta {
         color: var(--muted);
-        font-size: 0.92rem;
+        font-size: 0.9rem;
       }
 
-      @media (max-width: 720px) {
+      footer {
+        padding-top: 24px;
+      }
+
+      @media (max-width: 860px) {
         main {
-          width: min(100% - 24px, 920px);
-          padding: 28px 0;
+          width: min(100% - 24px, 1120px);
+          padding-top: 24px;
         }
 
-        header {
-          padding-top: 20px;
-        }
-
-        .grid {
+        .summary-grid,
+        .route-list {
           grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 24px 0;
         }
       }
     </style>
@@ -128,40 +232,338 @@
   <body>
     <main>
       <header>
-        <div class="status">GitHub Pages テスト公開</div>
-        <h1>旅行計画レポート</h1>
+        <div class="eyebrow">高知方面ドライブ計画</div>
+        <h1>新居浜発 高知立ち寄り旅行レポート</h1>
         <p class="lead">
-          このページは、旅行計画を静的HTMLレポートとしてGitHub Pagesで公開するためのテストページです。
+          愛媛県新居浜市坂井町付近から高知方面へ向かい、立川パーキングエリア、牧野植物園、高知市内、南国市内を経由して Mercure Kochi Tosa Resort & Spa に 15:20 到着するための計画です。
+        </p>
+
+        <div class="summary-grid" aria-label="旅行サマリー">
+          <div class="summary-card">
+            <span>推奨出発</span>
+            <strong>08:20</strong>
+          </div>
+          <div class="summary-card">
+            <span>最遅出発</span>
+            <strong>08:56</strong>
+          </div>
+          <div class="summary-card">
+            <span>目標到着</span>
+            <strong>15:20</strong>
+          </div>
+          <div class="summary-card">
+            <span>計画上の所要</span>
+            <strong>6時間24分</strong>
+          </div>
+        </div>
+
+        <p class="notice">
+          時刻はGoogleマップの最短移動時間をもとにした逆算です。駐車、施設入口までの徒歩、注文・会計待ち、渋滞の余裕は含めていないため、実用上は08:20出発を安定案とします。
         </p>
       </header>
 
-      <section aria-labelledby="overview-title">
-        <h2 id="overview-title">公開テスト</h2>
-        <div class="grid">
-          <div class="item">
-            <strong>目的</strong>
-            <span>旅行の候補、日程、交通、宿泊、予算をまとめる入口にします。</span>
+      <section aria-labelledby="schedule-title">
+        <h2 id="schedule-title">逆算スケジュール</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="number">順番</th>
+                <th>地点</th>
+                <th class="number">前区間移動</th>
+                <th class="number">到着</th>
+                <th class="number">滞在</th>
+                <th class="number">出発</th>
+                <th class="number">次区間移動</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="number">1</td>
+                <td>自宅付近</td>
+                <td class="number">-</td>
+                <td class="number">-</td>
+                <td class="number">-</td>
+                <td class="number">08:56</td>
+                <td class="number">47分</td>
+              </tr>
+              <tr>
+                <td class="number">2</td>
+                <td>立川パーキングエリア</td>
+                <td class="number">47分</td>
+                <td class="number">09:43</td>
+                <td class="number">20分</td>
+                <td class="number">10:03</td>
+                <td class="number">42分</td>
+              </tr>
+              <tr>
+                <td class="number">3</td>
+                <td>高知県立牧野植物園</td>
+                <td class="number">42分</td>
+                <td class="number">10:45</td>
+                <td class="number">1時間</td>
+                <td class="number">11:45</td>
+                <td class="number">14分</td>
+              </tr>
+              <tr>
+                <td class="number">4</td>
+                <td>鳥心 本店</td>
+                <td class="number">14分</td>
+                <td class="number">11:59</td>
+                <td class="number">1時間</td>
+                <td class="number">12:59</td>
+                <td class="number">12分</td>
+              </tr>
+              <tr>
+                <td class="number">5</td>
+                <td>ひろめ市場</td>
+                <td class="number">12分</td>
+                <td class="number">13:11</td>
+                <td class="number">30分</td>
+                <td class="number">13:41</td>
+                <td class="number">5分</td>
+              </tr>
+              <tr>
+                <td class="number">6</td>
+                <td>高知駅</td>
+                <td class="number">5分</td>
+                <td class="number">13:46</td>
+                <td class="number">30分</td>
+                <td class="number">14:16</td>
+                <td class="number">16分</td>
+              </tr>
+              <tr>
+                <td class="number">7</td>
+                <td>はま寿司 南国店</td>
+                <td class="number">16分</td>
+                <td class="number">14:32</td>
+                <td class="number">5分</td>
+                <td class="number">14:37</td>
+                <td class="number">3分</td>
+              </tr>
+              <tr>
+                <td class="number">8</td>
+                <td>マルナカ 南国店</td>
+                <td class="number">3分</td>
+                <td class="number">14:40</td>
+                <td class="number">20分</td>
+                <td class="number">15:00</td>
+                <td class="number">20分</td>
+              </tr>
+              <tr>
+                <td class="number">9</td>
+                <td>Mercure Kochi Tosa Resort &amp; Spa</td>
+                <td class="number">20分</td>
+                <td class="number">15:20</td>
+                <td class="number">-</td>
+                <td class="number">-</td>
+                <td class="number">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="route-title">
+        <h2 id="route-title">区間別移動時間</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>区間</th>
+                <th class="number">Googleマップ最短</th>
+                <th class="number">距離</th>
+                <th class="wide">経由</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>自宅付近 → 立川パーキングエリア</td>
+                <td class="number">47分</td>
+                <td class="number">56.6 km</td>
+                <td class="wide">松山自動車道・四国横断自動車道/高知道</td>
+              </tr>
+              <tr>
+                <td>立川パーキングエリア → 高知県立牧野植物園</td>
+                <td class="number">42分</td>
+                <td class="number">43.2 km</td>
+                <td class="wide">四国横断自動車道/高知道</td>
+              </tr>
+              <tr>
+                <td>高知県立牧野植物園 → 鳥心 本店</td>
+                <td class="number">14分</td>
+                <td class="number">6.4 km</td>
+                <td class="wide">県道35号</td>
+              </tr>
+              <tr>
+                <td>鳥心 本店 → ひろめ市場</td>
+                <td class="number">12分</td>
+                <td class="number">4.0 km</td>
+                <td class="wide">県道384号・国道32号</td>
+              </tr>
+              <tr>
+                <td>ひろめ市場 → 高知駅</td>
+                <td class="number">5分</td>
+                <td class="number">1.4 km</td>
+                <td class="wide">県道16号</td>
+              </tr>
+              <tr>
+                <td>高知駅 → はま寿司 南国店</td>
+                <td class="number">16分</td>
+                <td class="number">9.8 km</td>
+                <td class="wide">県道374号</td>
+              </tr>
+              <tr>
+                <td>はま寿司 南国店 → マルナカ 南国店</td>
+                <td class="number">3分</td>
+                <td class="number">800 m</td>
+                <td class="wide">おなが通り・国道55号</td>
+              </tr>
+              <tr>
+                <td>マルナカ 南国店 → Mercure Kochi Tosa Resort &amp; Spa</td>
+                <td class="number">20分</td>
+                <td class="number">17.4 km</td>
+                <td class="wide">国道55号</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="spots-title">
+        <h2 id="spots-title">訪問地点</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="number">No.</th>
+                <th>地点</th>
+                <th class="wide">住所・基準地点</th>
+                <th class="number">予定滞在</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="number">1</td>
+                <td>自宅付近</td>
+                <td class="wide">愛媛県新居浜市坂井町2丁目3付近</td>
+                <td class="number">-</td>
+              </tr>
+              <tr>
+                <td class="number">2</td>
+                <td>立川パーキングエリア</td>
+                <td class="wide">高知道 立川PA</td>
+                <td class="number">20分</td>
+              </tr>
+              <tr>
+                <td class="number">3</td>
+                <td>高知県立牧野植物園</td>
+                <td class="wide">高知県高知市五台山4200-6</td>
+                <td class="number">1時間</td>
+              </tr>
+              <tr>
+                <td class="number">4</td>
+                <td>鳥心 本店</td>
+                <td class="wide">高知県高知市南川添15-3</td>
+                <td class="number">1時間</td>
+              </tr>
+              <tr>
+                <td class="number">5</td>
+                <td>ひろめ市場</td>
+                <td class="wide">高知県高知市帯屋町2丁目3-1付近</td>
+                <td class="number">30分</td>
+              </tr>
+              <tr>
+                <td class="number">6</td>
+                <td>高知駅</td>
+                <td class="wide">JR高知駅</td>
+                <td class="number">30分</td>
+              </tr>
+              <tr>
+                <td class="number">7</td>
+                <td>はま寿司 南国店</td>
+                <td class="wide">高知県南国市篠原150</td>
+                <td class="number">5分</td>
+              </tr>
+              <tr>
+                <td class="number">8</td>
+                <td>マルナカ 南国店</td>
+                <td class="wide">高知県南国市大そね甲2531</td>
+                <td class="number">20分</td>
+              </tr>
+              <tr>
+                <td class="number">9</td>
+                <td>Mercure Kochi Tosa Resort &amp; Spa</td>
+                <td class="wide">高知県安芸郡芸西村西分甲2995</td>
+                <td class="number">15:20着</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="links-title">
+        <h2 id="links-title">Googleマップ確認リンク</h2>
+        <ul class="route-list">
+          <li>
+            <strong>自宅付近 → 立川PA</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%84%9B%E5%AA%9B%E7%9C%8C%E6%96%B0%E5%B1%85%E6%B5%9C%E5%B8%82%E5%9D%82%E4%BA%95%E7%94%BA2%E4%B8%81%E7%9B%AE3&amp;destination=%E7%AB%8B%E5%B7%9D%E3%83%91%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%AA%E3%82%A2&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>立川PA → 牧野植物園</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E7%AB%8B%E5%B7%9D%E3%83%91%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%AA%E3%82%A2&amp;destination=%E9%AB%98%E7%9F%A5%E7%9C%8C%E7%AB%8B%E7%89%A7%E9%87%8E%E6%A4%8D%E7%89%A9%E5%9C%92&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>牧野植物園 → 鳥心 本店</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E9%AB%98%E7%9F%A5%E7%9C%8C%E7%AB%8B%E7%89%A7%E9%87%8E%E6%A4%8D%E7%89%A9%E5%9C%92&amp;destination=%E9%B3%A5%E5%BF%83%20%E6%9C%AC%E5%BA%97&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>鳥心 本店 → ひろめ市場</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E9%B3%A5%E5%BF%83%20%E6%9C%AC%E5%BA%97&amp;destination=%E3%81%B2%E3%82%8D%E3%82%81%E5%B8%82%E5%A0%B4&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>ひろめ市場 → 高知駅</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E3%81%B2%E3%82%8D%E3%82%81%E5%B8%82%E5%A0%B4&amp;destination=%E9%AB%98%E7%9F%A5%E9%A7%85&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>高知駅 → はま寿司 南国店</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E9%AB%98%E7%9F%A5%E9%A7%85&amp;destination=%E3%81%AF%E3%81%BE%E5%AF%BF%E5%8F%B8%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>はま寿司 南国店 → マルナカ 南国店</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E3%81%AF%E3%81%BE%E5%AF%BF%E5%8F%B8%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;destination=%E3%83%9E%E3%83%AB%E3%83%8A%E3%82%AB%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;travelmode=driving">経路を開く</a>
+          </li>
+          <li>
+            <strong>マルナカ南国店 → Mercure</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E3%83%9E%E3%83%AB%E3%83%8A%E3%82%AB%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;destination=Mercure%20Kochi%20Tosa%20Resort%20%26%20Spa&amp;travelmode=driving">経路を開く</a>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="checks-title">
+        <h2 id="checks-title">確認メモ</h2>
+        <div class="summary-grid">
+          <div class="note-card">
+            <span>Python再計算</span>
+            <strong>15:20着 OK</strong>
           </div>
-          <div class="item">
-            <strong>形式</strong>
-            <span>GitHub Pagesでそのまま配信できる静的HTMLです。</span>
+          <div class="note-card">
+            <span>Googleマップ確認</span>
+            <strong>2026-05-16 22時台</strong>
           </div>
-          <div class="item">
-            <strong>次の作業</strong>
-            <span>行き先や日程が決まったら、旅程表と参考リンクを追加します。</span>
+          <div class="note-card">
+            <span>公開形式</span>
+            <strong>静的HTML</strong>
+          </div>
+          <div class="note-card">
+            <span>未反映</span>
+            <strong>駐車・混雑バッファ</strong>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="note-title">
-        <h2 id="note-title">メモ</h2>
-        <p>
-          ここから旅行ごとの詳細ページや、予算表、予約メモ、地図リンクを増やしていきます。
-        </p>
-      </section>
-
       <footer class="meta">
-        最終更新: 2026-05-16
+        最終更新: 2026-05-16 / GitHub Pages公開用レポート
       </footer>
     </main>
   </body>
