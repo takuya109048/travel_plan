@@ -126,8 +126,7 @@ section {
   margin-top: 20px;
 }
 
-.summary-card,
-.note-card {
+.summary-card {
   min-height: 118px;
   padding: 16px;
   border: 1px solid var(--line);
@@ -135,23 +134,20 @@ section {
   background: var(--surface);
 }
 
-.summary-card span,
-.note-card span {
+.summary-card span {
   display: block;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.summary-card strong,
-.note-card strong {
+.summary-card strong {
   display: block;
   margin-top: 7px;
   color: var(--accent-dark);
   font-size: 1.2rem;
 }
 
-.notice,
-.source-note {
+.notice {
   margin-top: 18px;
   padding: 14px 16px;
   border: 1px solid var(--warm-line);
@@ -300,8 +296,110 @@ tr:last-child td {
     width: 100%;
   }
 
+  .table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  table {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 0.9rem;
+  }
+
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
   th,
   td {
-    padding: 10px 11px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line);
+    white-space: normal;
+  }
+
+  td {
+    display: grid;
+    grid-template-columns: minmax(6.5em, 38%) minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    text-align: left;
+  }
+
+  td::before {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  td:last-child {
+    border-bottom: 0;
+  }
+
+  .number {
+    text-align: left;
+  }
+
+  .wide {
+    min-width: 0;
+  }
+
+  .schedule-table td:nth-child(1)::before {
+    content: "順番";
+  }
+
+  .schedule-table td:nth-child(2)::before {
+    content: "地点";
+  }
+
+  .schedule-table td:nth-child(3)::before {
+    content: "前区間移動";
+  }
+
+  .schedule-table td:nth-child(4)::before {
+    content: "到着";
+  }
+
+  .schedule-table td:nth-child(5)::before {
+    content: "滞在";
+  }
+
+  .schedule-table td:nth-child(6)::before {
+    content: "出発";
+  }
+
+  .schedule-table td:nth-child(7)::before {
+    content: "次区間移動";
+  }
+
+  .route-table td:nth-child(1)::before {
+    content: "区間";
+  }
+
+  .route-table td:nth-child(2)::before {
+    content: "最短";
+  }
+
+  .route-table td:nth-child(3)::before {
+    content: "距離";
+  }
+
+  .route-table td:nth-child(4)::before {
+    content: "経路";
   }
 }
