@@ -3,252 +3,38 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>高知日帰り旅行計画レポート</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f6f8f7;
-        --surface: #ffffff;
-        --ink: #202a33;
-        --muted: #5d6873;
-        --line: #d9e0e6;
-        --accent: #087b83;
-        --accent-dark: #07545c;
-        --accent-soft: #e5f4f3;
-        --warm: #fff5df;
-        --warm-line: #efd28f;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--ink);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        line-height: 1.65;
-      }
-
-      a {
-        color: var(--accent-dark);
-        text-decoration-thickness: 0.08em;
-        text-underline-offset: 0.18em;
-      }
-
-      main {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 32px 0 56px;
-      }
-
-      header {
-        padding: 28px 0 22px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        margin-bottom: 14px;
-        padding: 5px 9px;
-        border: 1px solid #9dccce;
-        border-radius: 6px;
-        background: var(--accent-soft);
-        color: var(--accent-dark);
-        font-size: 0.88rem;
-        font-weight: 700;
-      }
-
-      h1 {
-        max-width: 820px;
-        margin: 0 0 14px;
-        font-size: clamp(2rem, 6vw, 4.6rem);
-        line-height: 1.08;
-        letter-spacing: 0;
-      }
-
-      h2 {
-        margin: 0 0 16px;
-        font-size: 1.45rem;
-        letter-spacing: 0;
-      }
-
-      h3 {
-        margin: 0 0 10px;
-        font-size: 1.05rem;
-        letter-spacing: 0;
-      }
-
-      p {
-        margin: 0;
-      }
-
-      section {
-        padding: 30px 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .lead {
-        max-width: 780px;
-        color: var(--muted);
-        font-size: 1.04rem;
-      }
-
-      .summary-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 24px;
-      }
-
-      .summary-card,
-      .note-card {
-        min-height: 118px;
-        padding: 16px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface);
-      }
-
-      .summary-card span,
-      .note-card span {
-        display: block;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .summary-card strong,
-      .note-card strong {
-        display: block;
-        margin-top: 7px;
-        color: var(--accent-dark);
-        font-size: 1.25rem;
-      }
-
-      .notice {
-        margin-top: 18px;
-        padding: 14px 16px;
-        border: 1px solid var(--warm-line);
-        border-radius: 8px;
-        background: var(--warm);
-        color: #594620;
-      }
-
-      .table-wrap {
-        overflow-x: auto;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface);
-      }
-
-      table {
-        width: 100%;
-        min-width: 780px;
-        border-collapse: collapse;
-        font-size: 0.95rem;
-      }
-
-      th,
-      td {
-        padding: 12px 13px;
-        border-bottom: 1px solid var(--line);
-        text-align: left;
-        vertical-align: top;
-        white-space: nowrap;
-      }
-
-      th {
-        background: #edf4f3;
-        color: var(--accent-dark);
-        font-weight: 700;
-      }
-
-      tr:last-child td {
-        border-bottom: 0;
-      }
-
-      .number {
-        text-align: right;
-      }
-
-      .wide {
-        white-space: normal;
-        min-width: 220px;
-      }
-
-      .route-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .route-list li {
-        padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface);
-      }
-
-      .route-list strong {
-        display: block;
-        margin-bottom: 4px;
-        color: var(--accent-dark);
-      }
-
-      .meta {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      footer {
-        padding-top: 24px;
-      }
-
-      @media (max-width: 860px) {
-        main {
-          width: min(100% - 24px, 1120px);
-          padding-top: 24px;
-        }
-
-        .summary-grid,
-        .route-list {
-          grid-template-columns: 1fr;
-        }
-
-        section {
-          padding: 24px 0;
-        }
-      }
-    </style>
+    <title>高知日帰り寄り道旅行レポート</title>
+    <link rel="stylesheet" href="assets/css/report.css">
   </head>
   <body>
     <main>
-      <header>
-        <div class="eyebrow">高知方面ドライブ計画</div>
-        <h1>新居浜発 高知立ち寄り旅行レポート</h1>
-        <p class="lead">
-          愛媛県新居浜市坂井町付近から高知方面へ向かい、立川パーキングエリア、牧野植物園、高知市内、南国市内を経由して Mercure Kochi Tosa Resort & Spa に 15:20 到着するための計画です。
-        </p>
+      <header class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">高知方面ドライブ計画</p>
+          <h1>新居浜発 高知立ち寄り旅行レポート</h1>
+          <p class="lead">
+            愛媛県新居浜市方面から高知方面へ向かい、立川パーキングエリア、高知県立牧野植物園、鳥心本店、ひろめ市場、高知駅、南国市内の買い物スポットを経由して
+            Mercure Kochi Tosa Resort &amp; Spa に 15:20 到着するための静的HTMLレポートです。
+          </p>
+        </div>
+        <figure class="hero-figure">
+          <img src="assets/images/tachikawa-pa.png" alt="キャラクターたちが立川パーキングエリアで旅の地図を見て楽しんでいるイラスト">
+        </figure>
+      </header>
 
-        <div class="summary-grid" aria-label="旅行サマリー">
+      <section aria-labelledby="summary-title">
+        <h2 id="summary-title">旅の要約</h2>
+        <div class="summary-grid">
           <div class="summary-card">
-            <span>推奨出発</span>
+            <span>おすすめ出発</span>
             <strong>08:20</strong>
           </div>
           <div class="summary-card">
-            <span>最遅出発</span>
+            <span>最遅出発目安</span>
             <strong>08:56</strong>
           </div>
           <div class="summary-card">
-            <span>目標到着</span>
+            <span>目的地到着</span>
             <strong>15:20</strong>
           </div>
           <div class="summary-card">
@@ -256,11 +42,64 @@
             <strong>6時間24分</strong>
           </div>
         </div>
-
         <p class="notice">
-          時刻はGoogleマップの最短移動時間をもとにした逆算です。駐車、施設入口までの徒歩、注文・会計待ち、渋滞の余裕は含めていないため、実用上は08:20出発を安定案とします。
+          時刻は Google マップの最短移動時間をもとにした逆算です。駐車場、施設入口までの徒歩、注文や会計待ち、渋滞は大きめに変動するため、実用上は 08:20 出発を安全案にしています。
         </p>
-      </header>
+      </section>
+
+      <section aria-labelledby="gallery-title">
+        <h2 id="gallery-title">キャラクターとめぐる立ち寄りポイント</h2>
+        <div class="spot-grid">
+          <article class="spot-card">
+            <img src="assets/images/tachikawa-pa.png" alt="立川パーキングエリアでキャラクターたちが休憩しているイラスト">
+            <div>
+              <p class="spot-time">09:43-10:03</p>
+              <h3>立川パーキングエリア</h3>
+              <p>朝の休憩ポイント。山あいの雰囲気を入れて、旅の始まりらしい明るい絵にしました。</p>
+            </div>
+          </article>
+          <article class="spot-card">
+            <img src="assets/images/makino-garden.png" alt="牧野植物園でキャラクターたちが花や植物を見て楽しんでいるイラスト">
+            <div>
+              <p class="spot-time">10:45-11:45</p>
+              <h3>高知県立牧野植物園</h3>
+              <p>花、温室、緑の小道を背景に、ゆっくり散策する楽しさが出るように配置しています。</p>
+            </div>
+          </article>
+          <article class="spot-card">
+            <img src="assets/images/kochi-food.png" alt="高知の食事処でキャラクターたちが料理を楽しんでいるイラスト">
+            <div>
+              <p class="spot-time">11:59-13:41</p>
+              <h3>鳥心本店・ひろめ市場</h3>
+              <p>昼食と市場散策の区間。カツオや定食の雰囲気を入れて、食べ歩き感を強めています。</p>
+            </div>
+          </article>
+          <article class="spot-card">
+            <img src="assets/images/kochi-station.png" alt="高知駅前でキャラクターたちが荷物を持って楽しんでいるイラスト">
+            <div>
+              <p class="spot-time">13:46-14:16</p>
+              <h3>高知駅</h3>
+              <p>駅前で小休止。次の移動に向かう感じが出るよう、スーツケースとスマートフォンを持たせています。</p>
+            </div>
+          </article>
+          <article class="spot-card">
+            <img src="assets/images/nankoku-errands.png" alt="南国市内でキャラクターたちが買い物と軽い食事の準備をしているイラスト">
+            <div>
+              <p class="spot-time">14:32-15:00</p>
+              <h3>はま寿司 南国店・マルナカ 南国店</h3>
+              <p>ホテル前の実用的な買い物と軽食ストップ。飲み物や旅用品をそろえる雰囲気にしました。</p>
+            </div>
+          </article>
+          <article class="spot-card">
+            <img src="assets/images/tosa-resort.png" alt="海辺のリゾートホテルにキャラクターたちが到着して喜んでいるイラスト">
+            <div>
+              <p class="spot-time">15:20</p>
+              <h3>Mercure Kochi Tosa Resort &amp; Spa</h3>
+              <p>ゴール地点。海辺のリゾートに到着した解放感が出るよう、午後の光と荷物を入れています。</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section aria-labelledby="schedule-title">
         <h2 id="schedule-title">逆算スケジュール</h2>
@@ -280,7 +119,7 @@
             <tbody>
               <tr>
                 <td class="number">1</td>
-                <td>自宅付近</td>
+                <td>新居浜市内出発地点</td>
                 <td class="number">-</td>
                 <td class="number">-</td>
                 <td class="number">-</td>
@@ -373,21 +212,21 @@
                 <th>区間</th>
                 <th class="number">Googleマップ最短</th>
                 <th class="number">距離</th>
-                <th class="wide">経由</th>
+                <th class="wide">経路</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>自宅付近 → 立川パーキングエリア</td>
+                <td>新居浜市内出発地点 → 立川パーキングエリア</td>
                 <td class="number">47分</td>
                 <td class="number">56.6 km</td>
-                <td class="wide">松山自動車道・四国横断自動車道/高知道</td>
+                <td class="wide">松山自動車道・高知自動車道方面</td>
               </tr>
               <tr>
                 <td>立川パーキングエリア → 高知県立牧野植物園</td>
                 <td class="number">42分</td>
                 <td class="number">43.2 km</td>
-                <td class="wide">四国横断自動車道/高知道</td>
+                <td class="wide">高知自動車道方面</td>
               </tr>
               <tr>
                 <td>高知県立牧野植物園 → 鳥心 本店</td>
@@ -430,91 +269,19 @@
         </div>
       </section>
 
-      <section aria-labelledby="spots-title">
-        <h2 id="spots-title">訪問地点</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th class="number">No.</th>
-                <th>地点</th>
-                <th class="wide">住所・基準地点</th>
-                <th class="number">予定滞在</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="number">1</td>
-                <td>自宅付近</td>
-                <td class="wide">愛媛県新居浜市坂井町2丁目3付近</td>
-                <td class="number">-</td>
-              </tr>
-              <tr>
-                <td class="number">2</td>
-                <td>立川パーキングエリア</td>
-                <td class="wide">高知道 立川PA</td>
-                <td class="number">20分</td>
-              </tr>
-              <tr>
-                <td class="number">3</td>
-                <td>高知県立牧野植物園</td>
-                <td class="wide">高知県高知市五台山4200-6</td>
-                <td class="number">1時間</td>
-              </tr>
-              <tr>
-                <td class="number">4</td>
-                <td>鳥心 本店</td>
-                <td class="wide">高知県高知市南川添15-3</td>
-                <td class="number">1時間</td>
-              </tr>
-              <tr>
-                <td class="number">5</td>
-                <td>ひろめ市場</td>
-                <td class="wide">高知県高知市帯屋町2丁目3-1付近</td>
-                <td class="number">30分</td>
-              </tr>
-              <tr>
-                <td class="number">6</td>
-                <td>高知駅</td>
-                <td class="wide">JR高知駅</td>
-                <td class="number">30分</td>
-              </tr>
-              <tr>
-                <td class="number">7</td>
-                <td>はま寿司 南国店</td>
-                <td class="wide">高知県南国市篠原150</td>
-                <td class="number">5分</td>
-              </tr>
-              <tr>
-                <td class="number">8</td>
-                <td>マルナカ 南国店</td>
-                <td class="wide">高知県南国市大そね甲2531</td>
-                <td class="number">20分</td>
-              </tr>
-              <tr>
-                <td class="number">9</td>
-                <td>Mercure Kochi Tosa Resort &amp; Spa</td>
-                <td class="wide">高知県安芸郡芸西村西分甲2995</td>
-                <td class="number">15:20着</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       <section aria-labelledby="links-title">
         <h2 id="links-title">Googleマップ確認リンク</h2>
         <ul class="route-list">
           <li>
-            <strong>自宅付近 → 立川PA</strong>
-            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%84%9B%E5%AA%9B%E7%9C%8C%E6%96%B0%E5%B1%85%E6%B5%9C%E5%B8%82%E5%9D%82%E4%BA%95%E7%94%BA2%E4%B8%81%E7%9B%AE3&amp;destination=%E7%AB%8B%E5%B7%9D%E3%83%91%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%AA%E3%82%A2&amp;travelmode=driving">経路を開く</a>
+            <strong>新居浜市内 → 立川パーキングエリア</strong>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%96%B0%E5%B1%85%E6%B5%9C%E5%B8%82&amp;destination=%E7%AB%8B%E5%B7%9D%E3%83%91%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%AA%E3%82%A2&amp;travelmode=driving">経路を開く</a>
           </li>
           <li>
-            <strong>立川PA → 牧野植物園</strong>
+            <strong>立川パーキングエリア → 高知県立牧野植物園</strong>
             <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E7%AB%8B%E5%B7%9D%E3%83%91%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%A8%E3%83%AA%E3%82%A2&amp;destination=%E9%AB%98%E7%9F%A5%E7%9C%8C%E7%AB%8B%E7%89%A7%E9%87%8E%E6%A4%8D%E7%89%A9%E5%9C%92&amp;travelmode=driving">経路を開く</a>
           </li>
           <li>
-            <strong>牧野植物園 → 鳥心 本店</strong>
+            <strong>高知県立牧野植物園 → 鳥心 本店</strong>
             <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E9%AB%98%E7%9F%A5%E7%9C%8C%E7%AB%8B%E7%89%A7%E9%87%8E%E6%A4%8D%E7%89%A9%E5%9C%92&amp;destination=%E9%B3%A5%E5%BF%83%20%E6%9C%AC%E5%BA%97&amp;travelmode=driving">経路を開く</a>
           </li>
           <li>
@@ -534,7 +301,7 @@
             <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E3%81%AF%E3%81%BE%E5%AF%BF%E5%8F%B8%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;destination=%E3%83%9E%E3%83%AB%E3%83%8A%E3%82%AB%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;travelmode=driving">経路を開く</a>
           </li>
           <li>
-            <strong>マルナカ南国店 → Mercure</strong>
+            <strong>マルナカ 南国店 → Mercure Kochi Tosa Resort &amp; Spa</strong>
             <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E3%83%9E%E3%83%AB%E3%83%8A%E3%82%AB%20%E5%8D%97%E5%9B%BD%E5%BA%97&amp;destination=Mercure%20Kochi%20Tosa%20Resort%20%26%20Spa&amp;travelmode=driving">経路を開く</a>
           </li>
         </ul>
@@ -549,7 +316,7 @@
           </div>
           <div class="note-card">
             <span>Googleマップ確認</span>
-            <strong>2026-05-16 22時台</strong>
+            <strong>2026-05-16 22時頃</strong>
           </div>
           <div class="note-card">
             <span>公開形式</span>
@@ -557,9 +324,12 @@
           </div>
           <div class="note-card">
             <span>未反映</span>
-            <strong>駐車・混雑バッファ</strong>
+            <strong>渋滞・駐車場待ち</strong>
           </div>
         </div>
+        <p class="source-note">
+          公開用に、出発地点の地図リンクは市区町村レベルの表記へ丸めています。実際の出発地点、当日の道路状況、営業時間、予約条件は出発前に再確認してください。
+        </p>
       </section>
 
       <footer class="meta">
