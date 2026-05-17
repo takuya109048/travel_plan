@@ -254,6 +254,28 @@ tr:last-child td {
   color: var(--accent-dark);
 }
 
+.history-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-list li {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.history-list time {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
 .meta {
   padding-top: 24px;
   color: var(--muted);
@@ -392,7 +414,7 @@ tr:last-child td {
   }
 
   .route-table td:nth-child(2)::before {
-    content: "最短";
+    content: "移動時間";
   }
 
   .route-table td:nth-child(3)::before {
