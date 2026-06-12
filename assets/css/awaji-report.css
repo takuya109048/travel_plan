@@ -1,0 +1,80 @@
+.route-reference {
+  margin: 16px 0;
+}
+
+.walk-summary {
+  margin-top: 0;
+}
+
+.walk-summary .summary-card strong {
+  font-size: 1.05rem;
+}
+
+.duration {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.schedule-table tfoot th {
+  border-top: 2px solid #9dccce;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+@media (max-width: 560px) {
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .compact-table {
+    min-width: 680px;
+    border-collapse: collapse;
+  }
+
+  .compact-table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .compact-table tbody tr {
+    display: table-row;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .compact-table th,
+  .compact-table td {
+    display: table-cell;
+    padding: 10px 11px;
+    white-space: nowrap;
+  }
+
+  .compact-table td::before {
+    content: none;
+  }
+
+  .compact-table .wide {
+    min-width: 320px;
+    white-space: normal;
+  }
+
+  .route-flow {
+    align-items: stretch;
+  }
+
+  .route-flow span {
+    flex: 1 1 42%;
+    text-align: center;
+  }
+
+  .route-flow b {
+    align-self: center;
+  }
+}
