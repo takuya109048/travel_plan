@@ -15,6 +15,31 @@
   font-variant-numeric: tabular-nums;
 }
 
+.schedule-heading {
+  display: flex;
+  gap: 24px;
+  align-items: end;
+  justify-content: space-between;
+  margin: 18px 0 12px;
+}
+
+.schedule-heading h3 {
+  font-size: 1.2rem;
+}
+
+.schedule-heading > p {
+  max-width: 660px;
+  color: var(--muted);
+}
+
+.schedule-heading-late {
+  margin-top: 32px;
+}
+
+.schedule-wrap + .schedule-heading {
+  padding-top: 6px;
+}
+
 .schedule-table tfoot th {
   border-top: 2px solid #9dccce;
   background: var(--accent-soft);
@@ -22,6 +47,13 @@
 }
 
 @media (max-width: 560px) {
+  .schedule-heading {
+    display: block;
+  }
+
+  .schedule-heading > p {
+    margin-top: 8px;
+  }
   .table-wrap {
     overflow-x: auto;
     border: 1px solid var(--line);
