@@ -65,6 +65,109 @@
     white-space: normal;
   }
 
+  .schedule-table {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
+
+  .schedule-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .schedule-table tbody,
+  .schedule-table tfoot {
+    display: block;
+  }
+
+  .schedule-table tbody tr,
+  .schedule-table tfoot tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
+  .schedule-table tbody td,
+  .schedule-table tfoot th {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 8px;
+    min-width: 0;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line);
+    white-space: normal;
+    text-align: left;
+  }
+
+  .schedule-table tbody td:nth-child(1),
+  .schedule-table tbody td:nth-child(2) {
+    display: block;
+    color: var(--accent-dark);
+    font-weight: 700;
+  }
+
+  .schedule-table tbody td:nth-child(1) {
+    padding-right: 10px;
+  }
+
+  .schedule-table tbody td:nth-child(2) {
+    padding-left: 10px;
+    border-left: 1px solid var(--line);
+  }
+
+  .schedule-table tbody td:nth-child(n+3) {
+    grid-column: 1 / -1;
+  }
+
+  .schedule-table tbody td.duration:empty {
+    display: none;
+  }
+
+  .schedule-table tbody td::before {
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .schedule-table tbody td:nth-child(1)::before { content: "開始 "; }
+  .schedule-table tbody td:nth-child(2)::before { content: "終了 "; }
+  .schedule-table tbody td:nth-child(3)::before { content: "予定"; }
+  .schedule-table tbody td:nth-child(4)::before { content: "移動時間"; }
+  .schedule-table tbody td:nth-child(5)::before { content: "休憩・昼食"; }
+  .schedule-table tbody td:nth-child(6)::before { content: "散策・見学"; }
+  .schedule-table tbody td:nth-child(7)::before { content: "行動メモ"; }
+
+  .schedule-table tbody td:nth-child(7),
+  .schedule-table tfoot th:last-child {
+    border-bottom: 0;
+  }
+
+  .schedule-table .wide {
+    min-width: 0;
+  }
+
+  .schedule-table tfoot th {
+    grid-column: 1 / -1;
+    display: block;
+    border: 0;
+    background: transparent;
+  }
+
+  .schedule-table tfoot th:not(:first-child) {
+    padding-top: 0;
+  }
+
+  .schedule-table tfoot th:nth-child(2)::before { content: "移動時間: "; }
+  .schedule-table tfoot th:nth-child(3)::before { content: "休憩・昼食: "; }
+  .schedule-table tfoot th:nth-child(4)::before { content: "散策・見学: "; }
+
   .route-flow {
     align-items: stretch;
   }
